@@ -1,0 +1,16 @@
+__pycache__/
+*.pyc
+.venv/
+requirements-lock.txt
+
+# datos crudos descargados de origen: nunca se versionan
+datos/*.mat
+datos/raw.jsonl
+datos/candles.json
+datos/data.pkl
+datos/feat.npz
+datos/series.npz
+datos/wf.npz
+datos/indice.json
+datos/cap10_resultados.npy
+datos/escalado_grupo.npy

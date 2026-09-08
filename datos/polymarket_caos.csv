@@ -1,0 +1,4 @@
+serie,d2_m6,lyapunov,fnn_m1,fnn_m2,fnn_m3,fnn_m4,fnn_m5,fnn_m6
+retorno_btc_5m_normalizado,1.45,0.177,1.00,0.89,0.52,0.19,0.05,0.01
+ruido_blanco_control_negativo,0.91,0.179,1.00,0.91,0.55,0.19,0.04,0.00
+mapa_henon_control_positivo,1.20,0.400,0.83,0.00,0.00,0.00,0.00,0.00

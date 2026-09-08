@@ -1,0 +1,13 @@
+# Resumen derivado de teleco_calib.csv (5.439 corridas de calibracion espectral
+# ejecutadas por el autor en enero de 2026). El fichero original no se
+# redistribuye: aqui solo van los agregados usados en el capitulo 9.
+metrica,valor,nula,nota
+corridas_totales,5439,,"barrido sobre feature, k, umbrales y n_muestras"
+corridas_bits24_fft,4642,,
+corridas_bits32_hist,794,,
+aciertos_exactos_totales,93,,"fase real d mod 2^k dentro del top-32"
+aciertos_bits24_fft,0,474.8,"esperado por azar 474.8; observado 0"
+aciertos_bits32_hist,93,16.9,"93 concentrados solo en k=10 y k=11; 0 en k=8,9,12..20"
+distancia_relativa_mediana,0.0645,0.0107,"|mejor de 32 - fase real| / 2^k"
+distancia_relativa_media,0.0659,0.0152,
+filas_peores_que_mediana_nula,0.757,0.500,

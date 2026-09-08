@@ -1,0 +1,6 @@
+escenario,ev_por_accion,pct_nocional,resultado
+taker_ask_051_comision_35c,-0.0192,-1.92,pierde
+taker_ideal_050_comision_35c,-0.0092,-0.92,pierde
+taker_sin_comision_ask_051,0.0158,1.58,gana
+maker_050_sin_comision,0.0258,2.58,gana
+maker_049_sin_comision,0.0358,3.58,gana

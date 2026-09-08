@@ -1,0 +1,8 @@
+concepto,valor_pct,nota
+ventaja_en_muestra,0.94,primera mitad n=35363
+ventaja_fuera_de_muestra,0.59,segunda mitad n=35364
+ventaja_global,0.76,n=70728 z=4.06
+coste_007_min_p,3.50,0.07*min(p1-p) del nocional
+coste_007_importe,1.75,0.07 del importe apostado
+coste_horquilla_tipica,0.50,horquilla observada 0.01
+coste_horquilla_minima,0.10,1 tick 0.001

@@ -1,0 +1,8 @@
+# Dependencias minimas del libro «Todo tiene su frecuencia».
+# Fija tus versiones exactas en cuanto todo te funcione:
+#     pip freeze > requirements-lock.txt
+numpy>=1.24
+scipy>=1.10
+matplotlib>=3.7
+# solo para los capitulos que descargan datos (4-5 y 6-8)
+requests>=2.28

@@ -1,0 +1,13 @@
+condicion,n_entren,acierto_entren,n_test,acierto_test,z_test
+todas_las_ventanas,45726,0.5069,19597,0.5068,1.91
+absret_mayor_mediana,23233,0.5119,9997,0.4977,-0.45
+absret_mayor_cuartil75,11612,0.5144,5034,0.5085,1.21
+absret_mayor_decil90,4642,0.5265,2036,0.5216,1.95
+absret_mayor_percentil95,2318,0.5311,969,0.5108,0.67
+absret_menor_mediana_control,22493,0.5017,9600,0.5162,3.18
+regimen_tranquilo_vr_p25,10809,0.4937,4498,0.5024,0.33
+regimen_medio_p25_p75,23297,0.5098,10195,0.5076,1.54
+regimen_agitado_vr_p75,11619,0.5134,4904,0.5092,1.29
+regimen_extremo_vr_p90,4607,0.5079,1881,0.5221,1.91
+cruce_ret_p75_y_vr_p75,5552,0.5153,2372,0.5067,0.66
+cruce_ret_p90_y_vr_p75,3096,0.5191,1316,0.5190,1.38

@@ -1,0 +1,4 @@
+fuente,acierto,rho,r2_pct
+walkforward_modelo_todas_ventanas,0.5096,0.0192,0.0369
+walkforward_regla_con_disparo,0.5258,0.0516,0.2663
+solo_signo_anterior_fase1,0.5059,0.0118,0.0139
