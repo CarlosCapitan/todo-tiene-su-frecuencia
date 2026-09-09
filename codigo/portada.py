@@ -122,7 +122,7 @@ for base, (fuerte, resto) in zip(BANDAS, ETIQUETAS):
 # --- tipografia
 fig.text(X0, 0.930, "Dominio", color=CLARO, fontsize=52,
          fontweight='bold', fontfamily=TIPO, va='top', ha='left')
-fig.text(X0, 0.863, "espectral", color=CIAN, fontsize=52,
+fig.text(X0, 0.863, "Espectral", color=CIAN, fontsize=52,
          fontweight='bold', fontfamily=TIPO, va='top', ha='left')
 fig.text(X0, 0.792, "Todo tiene su frecuencia\n"
                     "Telecomunicaciones aplicadas a la industria,\n"

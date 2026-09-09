@@ -1,5 +1,4 @@
-# Dominio espectral
-## Todo tiene su frecuencia
+# Dominio Espectral - Todo tiene su frecuencia
 ### Telecomunicaciones aplicadas a la industria, los mercados financieros y la criptografía
 
 Repositorio de código del libro. **Todas las cifras del texto salen de ejecutar
