@@ -23,5 +23,14 @@ UMB=max(res[l]['zmax'] for l in meta if l.startswith('normal'))
 fal=[l for l in meta if not l.startswith('normal')]
 det=sum(res[l]['zmax']>UMB for l in fal)
 cls=sum(res[l]['zmax']>UMB and res[l]['ganador']==verdad(l) for l in fal)
-fp=sum(res[l]['zmax']>UMB for l in meta if l.startswith('normal'))
-print(f"\numbral z={UMB:.1f} (maximo en sanos) | detecta {det}/{len(fal)} | clasifica {cls}/{len(fal)} | falsos positivos {fp}/4")
+print(f"\numbral z={UMB:.1f} (maximo en sanos) | detecta {det}/{len(fal)} | clasifica {cls}/{len(fal)}")
+
+# ERROR CORREGIDO. Aqui se imprimia "falsos positivos 0/4", contando cuantos de
+# los cuatro sanos superaban un umbral definido como el MAXIMO de esos mismos
+# cuatro. Es cero por teorema, no por medicion: un elemento no supera el maximo
+# del conjunto al que pertenece. La linea se ha quitado.
+#
+# La tasa de falsos positivos honesta se mide en cwru_fuera_de_muestra.py y
+# cwru_loo.py, partiendo por carga del motor: 28,6 %, cota al 95 % del 45,7 %,
+# y toda ella concentrada en la carga 3. Ver apartado 4.6 y apendice A.8.
+print("falsos positivos: ver cwru_loo.py — aqui no se pueden medir sin circularidad")
