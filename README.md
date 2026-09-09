@@ -1,5 +1,6 @@
-# Todo tiene su frecuencia
-### Análisis espectral de Telecomunicaciones aplicado a la industria, los mercados y la criptografía
+# Dominio espectral
+## Todo tiene su frecuencia
+### Telecomunicaciones aplicadas a la industria, los mercados financieros y la criptografía
 
 Repositorio de código del libro. **Todas las cifras del texto salen de ejecutar
 esto sobre datos públicos.** El libro entero se reproduce en menos de una hora,

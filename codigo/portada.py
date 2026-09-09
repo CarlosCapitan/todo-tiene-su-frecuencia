@@ -120,13 +120,13 @@ for base, (fuerte, resto) in zip(BANDAS, ETIQUETAS):
              va='bottom', ha='left')
 
 # --- tipografia
-fig.text(X0, 0.930, "Todo tiene", color=CLARO, fontsize=52,
+fig.text(X0, 0.930, "Dominio", color=CLARO, fontsize=52,
          fontweight='bold', fontfamily=TIPO, va='top', ha='left')
-fig.text(X0, 0.863, "su frecuencia", color=CIAN, fontsize=52,
+fig.text(X0, 0.863, "espectral", color=CIAN, fontsize=52,
          fontweight='bold', fontfamily=TIPO, va='top', ha='left')
-fig.text(X0, 0.792, "Análisis espectral de Telecomunicaciones\n"
-                    "aplicado a la industria, los mercados\n"
-                    "y la criptografía",
+fig.text(X0, 0.792, "Todo tiene su frecuencia\n"
+                    "Telecomunicaciones aplicadas a la industria,\n"
+                    "los mercados financieros y la criptografía",
          color=MUTE, fontsize=15.5, fontfamily=TIPO, va='top', ha='left',
          linespacing=1.5)
 
@@ -137,7 +137,7 @@ fig.text(X0, 0.128, "Tres mundos, una sola herramienta.\n"
 fig.text(X0, 0.036, "CARLOS  NÚÑEZ  ZORRILLA", color=CLARO, fontsize=15,
          fontweight='bold', fontfamily=TIPO, va='bottom', ha='left')
 
-destino = figuras("portada.png")
+destino = figuras("portada-datos.png")
 fig.savefig(destino, facecolor=FONDO, dpi=300)
 
 # sin canal alfa: Leanpub y los generadores de PDF prefieren RGB plano
