@@ -199,16 +199,22 @@ def autocorr_ciclica(x, retardos=(0,1,2,3,4,6,12,24,48,96,144,288)):
 
 def ciclo_snr(x, periodos=(288, 2016)):
     """SNR de la potencia ciclica en los periodos objetivo, contra el fondo local."""
-    N = len(x); C = autocorr_ciclica(x); nb = len(next(iter(C.values())))
+    N = len(x); C = autocorr_ciclica(x)
     res = {}
     for T in periodos:
         best = 0.0
         for h in (1, 2, 3, 4):
-            b = int(round(N*h/T))
-            if b < 3 or b >= nb-3: continue
             for tau, Z in C.items():
+                # OJO con la longitud: el producto de retardo tiene N-tau muestras,
+                # asi que cada tau tiene su propio numero de bins y su propia
+                # frecuencia ciclica por bin. Usar N para todos desplaza el bin
+                # objetivo (inadvertido en series largas) y con series cortas
+                # saca el indice del array. Es el error de la seccion 8.x.
+                nbt = len(Z)
+                b = int(round((N-tau)*h/T))
+                if b < 3 or b >= nbt-3: continue
                 pico = Z[b-2:b+3].max()
-                lo, hi = max(1, b-400), min(nb, b+400)
+                lo, hi = max(1, b-400), min(nbt, b+400)
                 fondo = np.median(np.concatenate([Z[lo:b-4], Z[b+5:hi]]))
                 best = max(best, float(pico/(fondo+1e-12)))
         res[T] = best

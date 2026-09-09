@@ -1,6 +1,6 @@
 serie,ciclo288,ciclo2016,bicoh,tf_max,lyapunov,d2_m6
-ruido_blanco_calibracion,8.8,7.7,1.07,16.5,0.184,
-signo_crudo,10.1,9.3,0.99,16.2,0.045,0.00
-residuo_blanqueado,8.2,9.6,0.99,15.0,0.356,1.30
-magnitud_log_ret,13.8,79.2,11.48,71.1,0.186,1.24
-control_AM_ciclo288,1495.3,7.5,1.21,23.2,0.181,
+ruido_blanco_calibracion,9.51,7.12,1.02,18.84,0.180,0.90
+signo_crudo,11.15,8.70,1.00,15.80,0.057,0.00
+residuo_blanqueado,9.74,8.49,1.00,14.60,0.365,1.21
+magnitud_log_ret,11.82,74.37,29.73,176.86,0.187,1.37
+control_AM_ciclo288,2587.68,8.24,1.23,25.52,0.179,1.08

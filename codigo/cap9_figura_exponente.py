@@ -47,5 +47,5 @@ ax[1].set_title("B · Tres implementaciones distintas, un solo exponente")
 ax[1].grid(alpha=.3, axis="x")
 
 fig.tight_layout()
-sal = figuras("fig9_2_exponente.png"); fig.savefig(sal, dpi=150)
+sal = figuras("fig10_2_exponente.png"); fig.savefig(sal, dpi=150)
 print("figura ->", sal)

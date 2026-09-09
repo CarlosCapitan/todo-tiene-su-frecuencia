@@ -85,6 +85,6 @@ ax[1].set_title("B · Memoria del holograma (baby steps)")
 ax[1].grid(alpha=.3, which="both"); ax[1].legend(fontsize=8)
 
 fig.tight_layout()
-sal = os.path.join(RAIZ, "figuras", "fig9_1_escalado.png")
+sal = os.path.join(RAIZ, "figuras", "fig10_1_escalado.png")
 fig.savefig(sal, dpi=150)
 print("\nfigura ->", sal)
