@@ -40,10 +40,10 @@ y ningún otro— la batería funciona y todo lo demás está en pie.
 | | 7 · Bitcoin en Polymarket: cuando encuentras algo (y cuando lo matas) | Polymarket + Coinbase |
 | | 8 · Bitcoin en Polymarket: más allá de Fourier, y el techo | Polymarket + Coinbase |
 | **IV · La clave privada de Bitcoin**<br>*cuando el límite es un teorema* | 9 · La clave privada de Bitcoin: el oráculo en la firma | secp256k1 |
-| **V · Otros mundos** | 10 · La misma batería en cinco campos más | radio, ECG, red, sismos, astro |
-| **VI · Tu turno** | 11 · La batería, ordenada | — |
+| **V · Tu turno** | 10 · La batería, ordenada | — |
 | | Apéndice A · Los errores que cometí | — |
 | | Apéndice B · Reproducir todo | — |
+| | Apéndice C · Los instrumentos, en concepto | — |
 
 ## Algunos resultados
 
@@ -74,10 +74,7 @@ No se redistribuyen. Cada capítulo trae su script de descarga:
 |---|---|
 | 4, 5 | Bearing Data Center, Case Western Reserve University |
 | 6, 7, 8 | Polymarket «BTC Up or Down 5m» (gamma-api + CLOB) |
-| 9, 10 | ninguno: las señales se construyen al vuelo |
-
-El capítulo 10 enlaza además RadioML, PhysioNet, ENTSO-E, EarthScope y MAST para
-quien quiera pasar de los demos a los datos reales.
+| 9 | ninguno: las curvas se construyen al vuelo |
 
 ## El libro
 
