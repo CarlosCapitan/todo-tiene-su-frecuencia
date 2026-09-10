@@ -31,6 +31,10 @@ V = {int(k): [float(z) for z in v] for k, v in cd.items()}   # [t, low, high, op
 X, y = [], []
 for i, t in enumerate(ts):
     t = int(t)
+    # Convencion: las claves de cd son el INICIO de vela (API de Coinbase,
+    # granularity=300). La vela con clave t-300 cubre [t-300, t) y cierra
+    # exactamente en t, el instante en que se abre la ventana que se apuesta.
+    assert (t - 300) + 300 <= t   # la vela usada cierra <= instante de decision
     v = V.get(t-300)                      # ultima vela CERRADA al abrirse la ventana
     a, b = V.get(t-300), V.get(t)
     if v is None or a is None or b is None: continue
@@ -132,3 +136,27 @@ for nom, cols in modelos:
     print(f"  {nom:<34}{a:>26.4f}{z_prop(a, nb-hb):>8.2f}")
 print(f"\n  mejora del CLV sobre el bit anterior: "
       f"{100*(fuera([3,0])-base):+.3f} puntos porcentuales")
+
+print("\n" + "="*78)
+print("E. R2 DE CADA MODELO POR SEPARADO (no cruzar cifras de C con las de D)")
+print("="*78)
+for nom, cols in modelos:
+    a = fuera(cols)
+    r2m = (2*(a-0.5))**2
+    print(f"  {nom:<34}acierto {a:.4f}   R2 = {100*r2m:.4f} %")
+
+print("\n" + "="*78)
+print("F. TECHO INCONDICIONAL DE LA REGLA DEL CAPITULO 7 (el 0,27% del 8.5 es")
+print("   condicional a sus disparos, no a la varianza total del mercado)")
+print("="*78)
+wf = np.load('../datos/polymarket_walkforward.npz')
+K_regla, A_regla = int(wf['K']), float(wf['A'])
+N_TOTAL = 51280   # las mismas 51.280 ventanas de la serie walk-forward, apartado 8.2
+frac = K_regla / N_TOTAL
+acierto_incond = 0.5 + frac*(A_regla-0.5)
+rho_incond = 2*(acierto_incond-0.5)
+r2_incond = rho_incond**2
+print(f"  disparos: {K_regla:,} de {N_TOTAL:,} ventanas ({frac:.1%})")
+print(f"  acierto condicional (sobre los disparos): {A_regla:.4f}")
+print(f"  acierto global equivalente (resto de ventanas a 0,5): {acierto_incond:.4f}")
+print(f"  rho incondicional: {rho_incond:.4f}   R2 incondicional: {100*r2_incond:.4f} %")
