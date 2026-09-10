@@ -44,6 +44,7 @@ y ningún otro— la batería funciona y todo lo demás está en pie.
 | | Apéndice A · Los errores que cometí | — |
 | | Apéndice B · Reproducir todo | — |
 | | Apéndice C · Los instrumentos, en concepto | — |
+| | Apéndice D · De dónde viene cada cosa (bibliografía) | — |
 
 ## Algunos resultados
 
