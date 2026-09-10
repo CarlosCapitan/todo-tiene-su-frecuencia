@@ -6,3 +6,5 @@ scipy>=1.10
 matplotlib>=3.7
 # solo para los capitulos que descargan datos (4-5 y 6-8)
 requests>=2.28
+# solo para la regresion logistica de los capitulos 7 y 8
+scikit-learn>=1.3
