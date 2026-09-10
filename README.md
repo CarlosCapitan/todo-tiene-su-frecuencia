@@ -88,3 +88,10 @@ El **código** (`codigo/`) y los resultados derivados (`datos/`) van bajo licenc
 MIT. El **texto del libro** (`capitulos/`) es propiedad del autor. Los **datos
 originales** no se redistribuyen: cada capítulo trae su script de descarga y cada
 fuente tiene sus propias condiciones.
+
+**Alcance de la licencia.** La licencia MIT (`LICENSE`, texto estándar en inglés)
+cubre el código de `codigo/` y los resultados derivados de `datos/`. No cubre el
+texto del libro, cuyos derechos se reserva el autor, ni los datos originales de
+terceros, que este repositorio no redistribuye: cada capítulo trae su script de
+descarga desde la fuente, y cada fuente tiene sus propias condiciones de uso
+(Case Western Reserve University Bearing Data Center, Polymarket, Coinbase).
