@@ -11,9 +11,14 @@ Polymarket, entonces el "hallazgo" del capitulo 7 es microestructura de BTC
 pasada por el mercado de apuestas, y el veredicto del capitulo 9 -vive dentro
 del coste de operar, y se esta extinguiendo- se le aplica hacia atras.
 """
+import os, sys
+AQUI = os.path.dirname(os.path.abspath(__file__))
+sys.path.insert(0, os.path.join(AQUI, '..'))
+from rutas import datos as datos_libro
+
 import pickle, numpy as np, datetime as dt
 
-d = pickle.load(open('/home/claude/libro/repo/datos/data.pkl', 'rb'))
+d = pickle.load(open(datos_libro('data.pkl'), 'rb'))
 ts, bits, cd = d['ts'], d['bits'].astype(int), d['cd']
 
 # --- signo del retorno de BTC a 5 minutos, en los mismos instantes ------------
@@ -71,11 +76,11 @@ for nom, b in (("Polymarket", bp), ("BTC 5m", bb)):
           f"segunda mitad r(1) = {r1(b[h:]):+.5f}")
 
 # --- la misma medida a escala horaria, en la MISMA ventana temporal -----------
-import json, os
+import json
 print("\n" + "="*74)
 print("LA MISMA MEDIDA A ESCALA HORARIA, EN LA MISMA VENTANA DE FECHAS")
 print("="*74)
-p = "/home/claude/btc/datos/btc_1h.json"
+p = os.path.join(AQUI, "datos", "btc_1h.json")   # generado por codigo/btc/descargar.py
 if os.path.exists(p):
     H = {int(v[0]): float(v[4]) for v in json.load(open(p))}
     th = np.array(sorted(H)); ph = np.array([H[t] for t in th])
