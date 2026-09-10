@@ -60,9 +60,13 @@ def estadisticos(x, cfg, rng):
     return out
 
 if __name__ == "__main__":
+    import os
     s = pickle.load(open("datos/series.pkl","rb"))
-    resultados = json.load(open("datos/resultados_continuos.json"))
-    for esc in ("1d",):        # las de 1h ya estan calculadas y guardadas
+    if os.path.exists("datos/resultados_continuos.json"):
+        resultados = json.load(open("datos/resultados_continuos.json"))
+    else:
+        resultados = {}
+    for esc in ("1h", "1d"):    # las dos escalas: una pasada desde cero
         cfg = ESCALAS[esc]
         for serie in ("retorno","magnitud"):
             clave = f"{esc}/{serie}"

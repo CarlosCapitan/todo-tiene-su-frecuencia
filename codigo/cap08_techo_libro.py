@@ -28,7 +28,7 @@ d = pickle.load(open('../datos/data.pkl','rb'))
 ts, bits, cd = d['ts'], d['bits'].astype(int), d['cd']
 V = {int(k): [float(z) for z in v] for k, v in cd.items()}   # [t, low, high, open, close, vol]
 
-X, y = [], []
+X, y, bits_ok = [], [], []
 for i, t in enumerate(ts):
     t = int(t)
     # Convencion: las claves de cd son el INICIO de vela (API de Coinbase,
@@ -43,7 +43,8 @@ for i, t in enumerate(ts):
     clv  = (cl-lo)/(hi-lo)
     X.append([2*clv-1, vo*(2*clv-1), (cl-op)/(hi-lo)])
     y.append(1 if b[4] > a[4] else 0)
-X, y = np.array(X), np.array(y)
+    bits_ok.append(int(bits[i]))
+X, y, bits_ok = np.array(X), np.array(y), np.array(bits_ok)
 n = len(y)
 print(f"ventanas utilizables sin fuga temporal: {n:,}")
 print(f"p(sube) global: {y.mean():.5f}\n")
@@ -68,12 +69,14 @@ print("\n" + "="*78)
 print("B. LA PRUEBA QUE IMPORTA: ajustar en la primera mitad, medir en la segunda")
 print("="*78)
 print(f"{'variable':<28}{'acierto 1a mitad':>18}{'acierto 2a mitad':>18}{'z fuera':>9}")
+pout_por_var = {}
 for j, nom in enumerate(NOM):
     x = X[:, j]
     umb = np.median(x[:h])
     sentido = 1 if ((x[:h] > umb).astype(int) == y[:h]).mean() >= 0.5 else -1
     pin  = (((x[:h] > umb).astype(int) if sentido==1 else (x[:h] <= umb).astype(int)) == y[:h]).mean()
     pout = (((x[h:] > umb).astype(int) if sentido==1 else (x[h:] <= umb).astype(int)) == y[h:]).mean()
+    pout_por_var[nom] = pout
     print(f"{nom:<28}{pin:>18.4f}{pout:>18.4f}{z_prop(pout, n-h):>9.2f}")
 
 print("\n" + "="*78)
@@ -151,7 +154,7 @@ print("   condicional a sus disparos, no a la varianza total del mercado)")
 print("="*78)
 wf = np.load('../datos/polymarket_walkforward.npz')
 K_regla, A_regla = int(wf['K']), float(wf['A'])
-N_TOTAL = 51280   # las mismas 51.280 ventanas de la serie walk-forward, apartado 8.2
+N_TOTAL = 51626   # las mismas ventanas de la serie walk-forward, apartado 8.2 (resid.py)
 frac = K_regla / N_TOTAL
 acierto_incond = 0.5 + frac*(A_regla-0.5)
 rho_incond = 2*(acierto_incond-0.5)
@@ -160,3 +163,15 @@ print(f"  disparos: {K_regla:,} de {N_TOTAL:,} ventanas ({frac:.1%})")
 print(f"  acierto condicional (sobre los disparos): {A_regla:.4f}")
 print(f"  acierto global equivalente (resto de ventanas a 0,5): {acierto_incond:.4f}")
 print(f"  rho incondicional: {rho_incond:.4f}   R2 incondicional: {100*r2_incond:.4f} %")
+
+print("\n" + "="*78)
+print("G. ATENUACION DEL R2 DEL CLV, DEL SIGNO DE LA VELA AL BIT DEL MERCADO")
+print("="*78)
+coincidencia = float((bits_ok == y).mean())
+r2_clv = (2*(pout_por_var["CLV (presion compradora)"]-0.5))**2
+print(f"  coincidencia bit de Polymarket == signo de la vela: {coincidencia:.4f}")
+print(f"  R2 del CLV sobre el signo de la vela: {100*r2_clv:.4f} %")
+# Atenuacion del R2 medido sobre el signo de la vela al bit del mercado.
+# Con desacuerdo eps independiente, rho se atenua por (1-2*eps).
+eps = 1 - coincidencia          # coincidencia = fraccion vela == bit
+print("R2 CLV sobre el bit (atenuado):", r2_clv * (1 - 2*eps)**2)
